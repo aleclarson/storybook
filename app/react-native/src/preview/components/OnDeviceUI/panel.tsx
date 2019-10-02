@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, Animated } from 'react-native';
+import { StyleSheet } from 'react-native';
 import styled from '@emotion/native';
+import { a } from '@react-spring/native';
 import { EmotionProps } from '../Shared/theme';
 
-const Container: typeof Animated.View = styled(Animated.View)`
+const Container: typeof a.View = styled(a.View)`
   background: ${(props: EmotionProps) => props.theme.backgroundColor};
 `;
 

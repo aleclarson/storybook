@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "preserveSymlinks": true
   },
   "include": ["src/**/*"],
   "exclude": ["src/__tests__/**/*"]

@@ -24,6 +24,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/native": "^10.0.14",
+    "@react-spring/native": "9.0.0-canary.809.5.f01ecc2",
     "@storybook/addons": "5.2.1",
     "@storybook/channel-websocket": "5.2.1",
     "@storybook/channels": "5.2.1",

@@ -3,10 +3,10 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  Animated,
   TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native';
+import { a, SpringValue } from '@react-spring/native';
 import styled from '@emotion/native';
 import addons from '@storybook/addons';
 import Channel from '@storybook/channels';
@@ -59,7 +59,7 @@ const Preview: typeof TouchableOpacity = styled.TouchableOpacity`
 `;
 
 export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceUIState> {
-  animatedValue: Animated.Value;
+  animatedValue: SpringValue;
 
   channel: Channel;
 
@@ -72,7 +72,7 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
       previewWidth: 0,
       previewHeight: 0,
     };
-    this.animatedValue = new Animated.Value(tabOpen);
+    this.animatedValue = new SpringValue('tabOpen').set(tabOpen);
     this.channel = addons.getChannel();
   }
 
@@ -89,11 +89,12 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
     if (newTabOpen === tabOpen) {
       return;
     }
-    Animated.timing(this.animatedValue, {
-      toValue: newTabOpen,
-      duration: ANIMATION_DURATION,
-      useNativeDriver: true,
-    }).start();
+    this.animatedValue.start({
+      to: newTabOpen,
+      config: {
+        duration: ANIMATION_DURATION,
+      },
+    });
     this.setState({
       tabOpen: newTabOpen,
       // True if swiping between navigator and addons
@@ -137,8 +138,8 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
           previewHeight={previewHeight}
           previewWidth={previewWidth}
         >
-          <Animated.View style={previewWrapperStyles}>
-            <Animated.View style={previewStyles}>
+          <a.View style={previewWrapperStyles}>
+            <a.View style={previewStyles}>
               <Preview
                 accessible={false}
                 disabled={tabOpen === PREVIEW}
@@ -146,8 +147,8 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
               >
                 <StoryView url={url} onDevice stories={stories} />
               </Preview>
-            </Animated.View>
-          </Animated.View>
+            </a.View>
+          </a.View>
           <Panel style={getNavigatorPanelPosition(this.animatedValue, previewWidth)}>
             <StoryListView stories={stories} />
           </Panel>
