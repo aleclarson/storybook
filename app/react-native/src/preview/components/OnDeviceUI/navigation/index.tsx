@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { PureComponent } from 'react';
-import { View, SafeAreaView, StyleSheet } from 'react-native';
+import { View, SafeAreaView, StyleSheet, Platform } from 'react-native';
 import GestureRecognizer, { GestureRecognizerConfig } from 'react-native-swipe-gestures';
 import Bar from './bar';
 import VisibilityButton from './visibility-button';
@@ -54,23 +54,26 @@ export default class Navigation extends PureComponent<Props> {
     const { tabOpen, onChangeTab } = this.props;
     const { isUIVisible } = this.state;
 
-    return (
-      <View style={style.wrapper}>
-        <SafeAreaView>
-          {isUIVisible && (
+    let tabs;
+    if (isUIVisible) {
+      tabs = <Bar index={tabOpen} onPress={onChangeTab} />;
+      if (Platform.OS !== 'macos') {
+        tabs = (
+          <SafeAreaView>
             <GestureRecognizer
               onSwipeLeft={this.handleSwipeLeft}
               onSwipeRight={this.handleSwipeRight}
               config={SWIPE_CONFIG}
-            >
-              <Bar index={tabOpen} onPress={onChangeTab} />
-            </GestureRecognizer>
-          )}
-          <View>
-            <VisibilityButton onPress={this.handleToggleUI} />
-          </View>
-        </SafeAreaView>
-      </View>
-    );
+              children={tabs}
+            />
+            <View>
+              <VisibilityButton onPress={this.handleToggleUI} />
+            </View>
+          </SafeAreaView>
+        );
+      }
+    }
+
+    return <View style={style.wrapper}>{tabs}</View>;
   }
 }

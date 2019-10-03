@@ -99,9 +99,11 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
       // True if swiping between navigator and addons
       slideBetweenAnimation: tabOpen + newTabOpen === PREVIEW,
     });
-    // close the keyboard opened from a TextInput from story list or knobs
-    if (newTabOpen === PREVIEW) {
-      Keyboard.dismiss();
+    if (Platform.OS !== 'macos') {
+      // close the keyboard opened from a TextInput from story list or knobs
+      if (newTabOpen === PREVIEW) {
+        Keyboard.dismiss();
+      }
     }
   };
 
@@ -128,7 +130,7 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
         enabled={!shouldDisableKeyboardAvoidingView || tabOpen !== PREVIEW}
         behavior={IS_IOS ? 'padding' : null}
         keyboardVerticalOffset={keyboardAvoidingViewVerticalOffset}
-        style={{ flex: 1 }}
+        style={{ position: 'absolute', width: '100%', height: '100%' }}
       >
         <AbsolutePositionedKeyboardAwareView
           onLayout={this.onLayout}

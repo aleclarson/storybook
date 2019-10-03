@@ -29,21 +29,25 @@ export default class AbsolutePositionedKeyboardAwareView extends PureComponent<P
 
   constructor(props: Props) {
     super(props);
-    this.keyboardDidShowListener = Keyboard.addListener(
-      'keyboardDidShow',
-      this.keyboardDidShowHandler
-    );
-    this.keyboardDidHideListener = Keyboard.addListener(
-      'keyboardDidHide',
-      this.keyboardDidHideHandler
-    );
-    Dimensions.addEventListener('change', this.removeKeyboardOnOrientationChange);
+    if (Platform.OS !== 'macos') {
+      this.keyboardDidShowListener = Keyboard.addListener(
+        'keyboardDidShow',
+        this.keyboardDidShowHandler
+      );
+      this.keyboardDidHideListener = Keyboard.addListener(
+        'keyboardDidHide',
+        this.keyboardDidHideHandler
+      );
+      Dimensions.addEventListener('change', this.removeKeyboardOnOrientationChange);
+    }
   }
 
   componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-    Dimensions.removeEventListener('change', this.removeKeyboardOnOrientationChange);
+    if (Platform.OS !== 'macos') {
+      this.keyboardDidShowListener.remove();
+      this.keyboardDidHideListener.remove();
+      Dimensions.removeEventListener('change', this.removeKeyboardOnOrientationChange);
+    }
   }
 
   keyboardDidShowHandler = (e: KeyboardEvent) => {

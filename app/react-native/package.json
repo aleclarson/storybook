@@ -35,12 +35,11 @@
     "rn-host-detect": "^1.1.5"
   },
   "devDependencies": {
-    "@types/react-native": "^0.57.57",
-    "react-native": "^0.57.8"
+    "react-native": "github:aleclarson/react-native-macos"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": ">=0.57.0"
+    "react-native": "*"
   },
   "engines": {
     "node": ">=8.0.0"
