@@ -27,7 +27,6 @@ import {
 } from './animation';
 import { EmotionProps } from '../Shared/theme';
 
-const ANIMATION_DURATION = 300;
 const IS_IOS = Platform.OS === 'ios';
 
 interface OnDeviceUIProps {
@@ -91,9 +90,6 @@ export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceU
     }
     this.animatedValue.start({
       to: newTabOpen,
-      config: {
-        duration: ANIMATION_DURATION,
-      },
     });
     this.setState({
       tabOpen: newTabOpen,
