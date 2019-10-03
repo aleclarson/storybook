@@ -30,16 +30,6 @@
     "type": "git",
     "url": "https://github.com/storybookjs/storybook.git"
   },
-  "workspaces": [
-    "addons/*",
-    "addons/storyshots/*",
-    "app/*",
-    "dev-kits/*",
-    "examples-native/*",
-    "examples/*",
-    "lib/*",
-    "lib/cli/test/run/*"
-  ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "bootstrap:docs": "yarn install --cwd docs",
