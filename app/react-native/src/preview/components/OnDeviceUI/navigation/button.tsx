@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import styled from '@emotion/native';
 import { EmotionProps } from '../../Shared/theme';
 
@@ -36,8 +36,10 @@ export default class Button extends PureComponent<Props> {
 
     return (
       <TouchableOpacity onPress={this.onPress} activeOpacity={0.8}>
-        <ButtonText active={active}>{children}</ButtonText>
-        <ActiveBorder active={active} />
+        <View>
+          <ButtonText active={active}>{children}</ButtonText>
+          <ActiveBorder active={active} />
+        </View>
       </TouchableOpacity>
     );
   }
