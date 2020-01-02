@@ -7,7 +7,6 @@ import {
   SelectTypeKnob,
   RadiosTypeKnob,
   ArrayTypeKnob,
-  DateTypeKnob,
   ButtonTypeOnClickProp,
   FileTypeKnob,
   OptionsTypeKnob,
@@ -36,8 +35,6 @@ export type Knob<T extends KnobType = any> = T extends 'text'
   ? KnobPlus<T, Pick<RadiosTypeKnob, 'value' | 'options'>>
   : T extends 'array'
   ? KnobPlus<T, Pick<ArrayTypeKnob, 'value' | 'separator'>>
-  : T extends 'date'
-  ? KnobPlus<T, Pick<DateTypeKnob, 'value'>>
   : T extends 'files'
   ? KnobPlus<T, Pick<FileTypeKnob, 'value' | 'accept'>>
   : T extends 'button'
