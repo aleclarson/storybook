@@ -97,11 +97,6 @@ export function array(name: string, value: ArrayTypeKnobValue, separator = ',', 
   return manager.knob(name, { type: 'array', value, separator, groupId });
 }
 
-export function date(name: string, value = new Date(), groupId?: string) {
-  const proxyValue = value ? value.getTime() : new Date().getTime();
-  return manager.knob(name, { type: 'date', value: proxyValue, groupId });
-}
-
 export function button(name: string, callback: ButtonTypeOnClickProp, groupId?: string) {
   return manager.knob(name, { type: 'button', callback, hideLabel: true, groupId });
 }

@@ -6,7 +6,6 @@ import {
   boolean,
   text,
   select,
-  date,
   array,
   button,
   knob,
@@ -24,13 +23,6 @@ const groupId = 'GROUP-ID1';
 expectKnobOfType<string>(
   text('text simple', 'Batman'),
   text('text with group', 'default', groupId)
-);
-
-/** Date knob */
-
-expectKnobOfType<number>(
-  date('date simple', new Date('January 20 1887')),
-  date('date with group', new Date(), groupId)
 );
 
 /** Boolean knob */
