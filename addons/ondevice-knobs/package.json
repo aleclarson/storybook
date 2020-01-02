@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@storybook/addons": "5.2.1",
-    "@storybook/addon-knobs": "5.2.1",
+    "@storybook/addon-knobs": "link:../knobs",
     "@storybook/core-events": "5.2.1",
     "core-js": "^3.0.1",
     "deep-equal": "^1.0.1",
