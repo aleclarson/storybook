@@ -15,7 +15,7 @@
     "directory": "addons/ondevice-knobs"
   },
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"
