@@ -25,6 +25,7 @@
     "vue",
     "vuejs"
   ],
+  "workspaces": ["addons/*", "app/*"],
   "homepage": "https://storybook.js.org/",
   "repository": {
     "type": "git",
