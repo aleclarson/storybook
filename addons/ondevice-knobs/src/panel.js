@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import { SELECT_STORY, FORCE_RE_RENDER } from '@storybook/core-events';
 import { SET, SET_OPTIONS, RESET, CHANGE, CLICK } from '@storybook/addon-knobs';
@@ -137,12 +137,14 @@ export default class Panel extends React.Component {
 
     knobsArray = knobsArray.map(key => knobs[key]);
 
+    const wrapKnobs = children => <View style={{ flex: 1, padding: 10 }}>{children}</View>;
+
     if (knobsArray.length === 0) {
-      return <Text>NO KNOBS</Text>;
+      return wrapKnobs(<Text>NO KNOBS</Text>);
     }
 
-    return (
-      <View style={{ flex: 1 }}>
+    return wrapKnobs(
+      <>
         {groupIds.length > 0 && (
           <GroupTabs groups={groups} onGroupSelect={this.onGroupSelect} selectedGroup={groupId} />
         )}
@@ -153,21 +155,10 @@ export default class Panel extends React.Component {
             onFieldClick={this.handleClick}
           />
         </View>
-        <TouchableOpacity
-          style={{
-            borderRadius: 2,
-            borderWidth: 1,
-            borderColor: '#f7f4f4',
-            padding: 4,
-            margin: 10,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-          onPress={this.reset}
-        >
-          <Text>RESET</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={{ margin: 10 }}>
+          <Button onPress={this.reset} title="RESET" />
+        </View>
+      </>
     );
   }
 }
