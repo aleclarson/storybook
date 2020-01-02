@@ -44,6 +44,7 @@ class NumberType extends React.Component {
         transformer={this.numberTransformer}
         keyboardType="numeric"
         onChangeText={this.onChangeNormal}
+        selectTextOnFocus={true}
       />
     );
   }
