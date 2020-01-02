@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Text, Modal, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import {
+  Button,
+  Text,
+  Modal,
+  View,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import { ColorPicker, fromHsv } from 'react-native-color-picker';
 
 class ColorType extends React.Component {
@@ -32,17 +39,13 @@ class ColorType extends React.Component {
   render() {
     const { knob } = this.props;
     const { displayColorPicker } = this.state;
-    const colorStyle = {
-      borderColor: 'rgb(247, 244, 244)',
-      width: 30,
-      height: 20,
-      borderRadius: 2,
-      margin: 10,
-      backgroundColor: knob.value,
-    };
     return (
       <View>
-        <TouchableOpacity style={colorStyle} onPress={this.openColorPicker} />
+        <Button
+          title="Choose color"
+          style={{ fontSize: 20, color: 'black' }}
+          onPress={this.openColorPicker}
+        />
         <Modal
           supportedOrientations={['portrait', 'landscape']}
           transparent
