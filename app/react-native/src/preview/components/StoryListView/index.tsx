@@ -14,8 +14,8 @@ const SearchBar: typeof TextInput = styled.TextInput`
   border-bottom-left-radius: 5;
   border-bottom-right-radius: 5;
   font-size: 16;
-  margin-horizontal: 5;
-  margin-vertical: 5;
+  margin-horizontal: 10;
+  margin-vertical: 10;
   padding-horizontal: 5;
   padding-vertical: 5;
 `;
@@ -46,6 +46,7 @@ interface ListItemProps {
 }
 
 const ItemTouchable: typeof TouchableOpacity = styled.TouchableOpacity`
+  margin-top: 15;
   padding-horizontal: 16;
   padding-vertical: 5;
 `;
@@ -71,10 +72,6 @@ interface State {
   originalData: any[];
 }
 
-const List: typeof SectionList = styled.SectionList`
-  flex: 1;
-  margin-bottom: 40;
-`;
 export default class StoryListView extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -163,7 +160,7 @@ export default class StoryListView extends Component<Props, State> {
     const { data } = this.state;
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
         <SearchBar
           testID="Storybook.ListView.SearchBar"
           clearButtonMode="while-editing"
@@ -172,7 +169,8 @@ export default class StoryListView extends Component<Props, State> {
           placeholder="Filter"
           returnKeyType="search"
         />
-        <List
+        <SectionList
+          style={{ flex: 1, marginBottom: 40, marginHorizontal: 15 }}
           testID="Storybook.ListView"
           renderItem={({ item }) => (
             <ListItem
