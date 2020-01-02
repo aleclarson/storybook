@@ -1,19 +1,19 @@
 import { SpringValue } from '@react-spring/native';
 import { NAVIGATOR, PREVIEW, ADDONS } from './navigation/constants';
 
-const PREVIEW_SCALE = 0.3;
+const PREVIEW_SCALE = 0.8;
 
-const panelWidth = (width: number) => width * (1 - PREVIEW_SCALE - 0.05);
+const getPanelWidth = (width: number) => width * (1 - PREVIEW_SCALE - 0.008);
 
 export const getNavigatorPanelPosition = (animatedValue: SpringValue, previewWidth: number) => {
   return [
     {
       transform: [
         {
-          translateX: animatedValue.to([NAVIGATOR, PREVIEW], [0, -panelWidth(previewWidth) - 1]),
+          translateX: animatedValue.to([NAVIGATOR, PREVIEW], [0, -getPanelWidth(previewWidth) - 1]),
         },
       ],
-      width: panelWidth(previewWidth),
+      width: getPanelWidth(previewWidth),
     },
   ];
 };
@@ -25,11 +25,11 @@ export const getAddonPanelPosition = (animatedValue: SpringValue, previewWidth: 
         {
           translateX: animatedValue.to(
             [PREVIEW, ADDONS],
-            [previewWidth, previewWidth - panelWidth(previewWidth)]
+            [previewWidth, previewWidth - getPanelWidth(previewWidth)]
           ),
         },
       ],
-      width: panelWidth(previewWidth),
+      width: getPanelWidth(previewWidth),
     },
   ];
 };
