@@ -36,15 +36,13 @@ interface QueryLinkProps {
   children: React.ReactNode;
 }
 
-const getBase = () => `${document.location.pathname}?`;
-
-const queryNavigate = (to: string) => {
-  navigate(`${getBase()}path=${to}`);
-};
+const buildLink = (to: string) => `${document.location.pathname}?path=${to}`;
+const queryNavigate = (to: string | number) =>
+  typeof to === 'string' ? navigate(buildLink(to)) : navigate(to);
 
 // A component that will navigate to a new location/path when clicked
 const QueryLink = ({ to, children, ...rest }: QueryLinkProps) => (
-  <Link to={`${getBase()}path=${to}`} {...rest}>
+  <Link to={buildLink(to)} {...rest}>
     {children}
   </Link>
 );
