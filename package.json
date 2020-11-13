@@ -30,10 +30,13 @@
     "type": "git",
     "url": "https://github.com/storybookjs/storybook.git"
   },
-  "workspaces": [
-    "addons/*",
-    "app/*"
-  ],
+  "workspaces": {
+    "nohoist": ["**"],
+    "packages": [
+      "addons/*",
+      "app/*"
+    ]
+  },
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "bootstrap:docs": "yarn install --cwd docs",
