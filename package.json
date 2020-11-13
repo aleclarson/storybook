@@ -33,6 +33,7 @@
   "workspaces": {
     "nohoist": ["**"],
     "packages": [
+      "lib/*",
       "addons/*",
       "app/*"
     ]
