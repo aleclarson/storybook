@@ -1,3 +1,5 @@
+import '@emotion/styled-base';
+
 export { Badge } from './Badge/Badge';
 
 // Typography
