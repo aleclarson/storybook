@@ -45,7 +45,7 @@ export default class ConfigApi {
     this._storyStore.setSelection(undefined, error);
   }
 
-  configure = (loaders: () => void, module: NodeModule) => {
+  configure = (loaders: () => void, module: any) => {
     const render = () => {
       const errors = [];
 

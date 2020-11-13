@@ -94,7 +94,7 @@ export type DecoratorFunction<StoryFnReturnType = unknown> = (
 ) => ReturnType<StoryFn<StoryFnReturnType>>;
 
 export interface ClientStoryApi<StoryFnReturnType = unknown> {
-  storiesOf(kind: string, module: NodeModule): StoryApi<StoryFnReturnType>;
+  storiesOf(kind: string, module: any): StoryApi<StoryFnReturnType>;
   addDecorator(decorator: DecoratorFunction<StoryFnReturnType>): StoryApi<StoryFnReturnType>;
   addParameters(parameter: Parameters): StoryApi<StoryFnReturnType>;
 }

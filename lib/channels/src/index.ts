@@ -1,3 +1,5 @@
+declare const setImmediate: Function;
+
 export type ChannelHandler = (event: ChannelEvent) => void;
 
 export interface ChannelTransport {

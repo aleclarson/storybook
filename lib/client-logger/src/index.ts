@@ -1,3 +1,4 @@
+declare const global: any;
 const { console } = global;
 
 /* tslint:disable: no-console */

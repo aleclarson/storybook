@@ -146,10 +146,7 @@ export default class ClientApi {
   };
 
   // what are the occasions that "m" is simply a boolean, vs an obj
-  storiesOf = <StoryFnReturnType = unknown>(
-    kind: string,
-    m: NodeModule
-  ): StoryApi<StoryFnReturnType> => {
+  storiesOf = <StoryFnReturnType = unknown>(kind: string, m: any): StoryApi<StoryFnReturnType> => {
     if (!kind && typeof kind !== 'string') {
       throw new Error('Invalid or missing kind provided for stories, should be a string');
     }
