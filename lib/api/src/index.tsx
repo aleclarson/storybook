@@ -191,13 +191,13 @@ class ManagerProvider extends Component<Props, State> {
     this.api = api;
   }
 
-  static getDerivedStateFromProps = (props: Props, state: State) => {
+  static getDerivedStateFromProps = (props: Props, state: State): State | null => {
     if (state.path !== props.path) {
       return {
         ...state,
         location: props.location,
         path: props.path,
-        viewMode: props.viewMode,
+        viewMode: props.viewMode as any,
         storyId: props.storyId,
       };
     }
