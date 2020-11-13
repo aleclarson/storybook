@@ -26,7 +26,7 @@ export const ContextsPreviewAPI = singleton(() => {
    * which is useful for performing image snapshot testing or URL sharing.
    */
   if (window && window.location) {
-    selectionState = deserialize(parse(window.location.search)[PARAM]) || {};
+    selectionState = deserialize(parse(window.location.search)[PARAM] as any) || {};
   }
 
   /**

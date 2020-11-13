@@ -25,12 +25,15 @@
     "vue",
     "vuejs"
   ],
-  "workspaces": ["addons/*", "app/*"],
   "homepage": "https://storybook.js.org/",
   "repository": {
     "type": "git",
     "url": "https://github.com/storybookjs/storybook.git"
   },
+  "workspaces": [
+    "addons/*",
+    "app/*"
+  ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "bootstrap:docs": "yarn install --cwd docs",
@@ -128,6 +131,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@emotion/snapshot-serializer": "^0.8.2",
     "@types/common-tags": "^1.8.0",
+    "@types/enzyme": "^3.10.8",
     "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.129",
     "@types/node": "~12.0.2",

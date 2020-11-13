@@ -16,7 +16,7 @@ interface OnDeviceUIProps {
   keyboardAvoidingViewVerticalOffset?: number;
 }
 
-export default class OnDeviceUI extends PureComponent<OnDeviceUIProps, OnDeviceUIState> {
+export default class OnDeviceUI extends PureComponent<OnDeviceUIProps> {
   animatedValue: SpringValue;
 
   channel: Channel;
