@@ -4,10 +4,6 @@
       "url": "git@bitbucket.org:aleclarson/rn-storybook.git",
       "head": "master"
     },
-    "vendor/react-native-animatable": {
-      "url": "git@github.com:aleclarson/react-native-animatable.git",
-      "head": "dev"
-    },
     "vendor/react-native-switch": {
       "url": "git@github.com:aleclarson/react-native-switch.git",
       "head": "master"
