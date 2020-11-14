@@ -3,6 +3,9 @@ import { styled } from '@storybook/theming';
 import { opacify, transparentize } from 'polished';
 import { Icons } from '@storybook/components';
 
+// avoid TS2742
+import '@emotion/styled-base';
+
 export type ExpanderProps = React.ComponentProps<'span'> & {
   isExpanded?: boolean;
   isExpandable?: boolean;
