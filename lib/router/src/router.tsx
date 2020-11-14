@@ -31,7 +31,7 @@ interface RouteProps {
   children: (renderData: RenderData) => React.ReactNode;
 }
 
-interface QueryLinkProps {
+interface QueryLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   to: string;
   children: React.ReactNode;
 }
