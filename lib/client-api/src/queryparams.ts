@@ -12,5 +12,5 @@ export const getQueryParams = () => {
 export const getQueryParam = (key: string): string | void => {
   const params = getQueryParams();
 
-  return params[key];
+  return params[key] as any;
 };
