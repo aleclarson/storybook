@@ -24,7 +24,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/native": "^10.0.14",
-    "@react-spring/native": "9.0.0-canary.809.5.f01ecc2",
     "@storybook/addons": "5.2.1",
     "@storybook/channel-websocket": "5.2.1",
     "@storybook/channels": "5.2.1",
@@ -36,9 +35,11 @@
     "rn-host-detect": "^1.1.5"
   },
   "devDependencies": {
-    "react-native": "github:aleclarson/react-native-macos"
+    "@react-spring/native": "9.0.0-rc.3",
+    "@types/react-native": "*"
   },
   "peerDependencies": {
+    "@react-spring/native": "*",
     "react": "*",
     "react-native": "*"
   },
