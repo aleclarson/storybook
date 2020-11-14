@@ -1,7 +1,7 @@
 import { document } from 'global';
 import PropTypes from 'prop-types';
 import React, { Component, Validator } from 'react';
-import { SketchPicker, ColorResult } from 'react-color';
+import { SketchPicker } from 'react-color';
 
 import { styled } from '@storybook/theming';
 import { Form } from '@storybook/components';
@@ -105,12 +105,6 @@ export default class ColorType extends Component<ColorTypeProps, ColorTypeState>
     });
   };
 
-  handleChange = (color: ColorResult) => {
-    const { onChange } = this.props;
-
-    onChange(`rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`);
-  };
-
   render() {
     const { knob } = this.props;
     const { displayColorPicker } = this.state;
@@ -133,7 +127,14 @@ export default class ColorType extends Component<ColorTypeProps, ColorTypeState>
               if (e) this.popover = e;
             }}
           >
-            <SketchPicker color={knob.value} onChange={this.handleChange} />
+            <SketchPicker
+              color={knob.value}
+              onChange={color => {
+                const { onChange } = this.props;
+                const { r, g, b, a } = color.rgb;
+                onChange(`rgba(${r},${g},${b},${a})`);
+              }}
+            />
           </Popover>
         ) : null}
       </ColorButton>
