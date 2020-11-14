@@ -25,7 +25,8 @@
     "fast-deep-equal": "^2.0.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "5.2.1"
+    "@storybook/addon-actions": "5.2.1",
+    "@types/react-native": "^0.63.35"
   },
   "peerDependencies": {
     "@storybook/addon-actions": "*",
