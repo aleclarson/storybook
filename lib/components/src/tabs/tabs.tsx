@@ -13,7 +13,7 @@ import { Placeholder } from '../placeholder/placeholder';
 import { FlexBar } from '../bar/bar';
 import { TabButton } from '../bar/button';
 
-const ignoreSsrWarning = 
+const ignoreSsrWarning =
   '/* emotion-disable-server-rendering-unsafe-selector-warning-please-do-not-use-this-the-warning-exists-for-a-reason */';
 
 export interface WrapperProps {
@@ -113,7 +113,7 @@ export const panelProps = {
 
 const childrenToList = (children: any, selected: string) =>
   Children.toArray(children).map(
-    ({ props: { title, id, color, children: childrenOfChild } }, index) => {
+    ({ props: { title, id, color, children: childrenOfChild } }: any, index) => {
       const content = Array.isArray(childrenOfChild) ? childrenOfChild[0] : childrenOfChild;
       return {
         active: selected ? id === selected : index === 0,
