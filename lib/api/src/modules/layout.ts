@@ -153,7 +153,7 @@ export const focusableUIElements = {
 };
 
 let hasSetOptions = false;
-export default function({ store }: { store: Store }) {
+export default function initLayout({ store }: { store: Store }) {
   const api = {
     toggleFullscreen(toggled?: boolean) {
       return store.setState((state: State) => {

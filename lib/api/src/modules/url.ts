@@ -106,7 +106,7 @@ export interface SubAPI {
   setQueryParams: (input: QueryParams) => void;
 }
 
-export default function({ store, navigate, state, provider, ...rest }: Module) {
+export default function initURL({ store, navigate, state, provider, ...rest }: Module) {
   const api: SubAPI = {
     getQueryParam: key => {
       const { customQueryParams } = store.getState();

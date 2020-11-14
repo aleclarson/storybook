@@ -44,7 +44,7 @@ export interface SubAPI {
   versionUpdateAvailable: () => boolean;
 }
 
-export default function({ store, mode }: Module) {
+export default function initVersions({ store, mode }: Module) {
   const {
     versions: persistedVersions = {},
     lastVersionCheck = 0,

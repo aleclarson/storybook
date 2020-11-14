@@ -14,7 +14,7 @@ export interface SubAPI {
   clearNotification: (id: string) => void;
 }
 
-export default function({ store }: Module) {
+export default function initNotifications({ store }: Module) {
   const api = {
     addNotification: (notification: Notification) => {
       // Get rid of it if already exists
