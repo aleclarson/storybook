@@ -17,7 +17,7 @@
     "directory": "app/react-native"
   },
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "prepare": "node ../../scripts/prepare.js"
   },
