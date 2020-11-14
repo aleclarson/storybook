@@ -1,1 +1,2 @@
-require('./dist').register();
+import { register } from './dist';
+register();

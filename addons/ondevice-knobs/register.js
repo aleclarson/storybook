@@ -1,1 +1,2 @@
-require('./src/index').register();
+import { register } from './dist';
+register();
