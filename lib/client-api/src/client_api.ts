@@ -9,7 +9,7 @@ import { toId } from '@storybook/router/utils';
 import mergeWith from 'lodash/mergeWith';
 import isEqual from 'lodash/isEqual';
 import get from 'lodash/get';
-import { ClientApiParams, DecoratorFunction, ClientApiAddons, StoryApi } from './types';
+import { ClientApiParams, DecoratorFunction, ClientApiAddons, StoryApi, StoreItem } from './types';
 import subscriptionsStore from './subscriptions_store';
 import { applyHooks } from './hooks';
 import StoryStore from './story_store';
@@ -285,7 +285,7 @@ This is probably not what you intended. Read more here: https://github.com/story
       return { kind, fileName, stories };
     });
 
-  raw = () => this._storyStore.raw();
+  raw = (): StoreItem[] => this._storyStore.raw();
 
   // FIXME: temporary expose the store for react-native
   // Longer term react-native should use the Provider/Consumer api
