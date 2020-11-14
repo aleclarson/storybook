@@ -1,6 +1,9 @@
 import { queryFromLocation } from '@storybook/router';
 import { toId } from '@storybook/router/dist/utils';
 
+// avoid TS2742
+import '@types/reach__router';
+
 import { Module } from '../index';
 import { PanelPositions } from './layout';
 

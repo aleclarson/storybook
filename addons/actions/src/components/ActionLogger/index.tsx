@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import { styled, withTheme, Theme } from '@storybook/theming';
 
+// avoid TS2742
+import '@emotion/styled-base';
+
 import Inspector from 'react-inspector';
 import { ActionBar, ScrollArea } from '@storybook/components';
 
