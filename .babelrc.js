@@ -14,12 +14,7 @@ const withTests = {
 
 module.exports = {
   ignore: ['./lib/codemod/src/transforms/__testfixtures__'],
-  presets: [
-    ['@babel/preset-env', { shippedProposals: true, useBuiltIns: 'usage', corejs: '3' }],
-    '@babel/preset-typescript',
-    '@babel/preset-react',
-    '@babel/preset-flow',
-  ],
+  presets: ['@babel/preset-typescript', '@babel/preset-react', '@babel/preset-flow'],
   plugins: [
     [
       '@babel/plugin-proposal-decorators',
@@ -30,7 +25,6 @@ module.exports = {
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     '@babel/plugin-proposal-export-default-from',
     '@babel/plugin-syntax-dynamic-import',
-    ['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
     'babel-plugin-macros',
     ['emotion', { sourceMap: true, autoLabel: true }],
   ],
@@ -54,12 +48,8 @@ module.exports = {
     },
     {
       test: './lib',
-      presets: [
-        ['@babel/preset-env', { shippedProposals: true, useBuiltIns: 'usage', corejs: '3' }],
-        '@babel/preset-react',
-      ],
+      presets: ['@babel/preset-react'],
       plugins: [
-        ['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
         '@babel/plugin-proposal-export-default-from',
         '@babel/plugin-syntax-dynamic-import',
         ['@babel/plugin-proposal-class-properties', { loose: true }],
