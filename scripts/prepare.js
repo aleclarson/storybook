@@ -40,6 +40,7 @@ function cleanup() {
 }
 
 let failed = false;
+process.on('exit', () => failed && shell.rm('-rf', 'dist'));
 
 function logError(type, packageJson, errorLogs) {
   failed = true;
@@ -55,7 +56,6 @@ babelify({ errorCallback: errorLogs => logError('js', packageJson, errorLogs) })
 tscfy({ errorCallback: errorLogs => logError('ts', packageJson, errorLogs) });
 
 if (failed) {
-  shell.rm('-rf', 'dist');
   process.exit(1);
 }
 
