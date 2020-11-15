@@ -14,7 +14,7 @@ const withTests = {
 
 module.exports = {
   ignore: ['./lib/codemod/src/transforms/__testfixtures__'],
-  presets: ['@babel/preset-typescript', '@babel/preset-react', '@babel/preset-flow'],
+  presets: ['@babel/preset-typescript', '@babel/preset-flow'],
   plugins: [
     [
       '@babel/plugin-proposal-decorators',
@@ -48,7 +48,6 @@ module.exports = {
     },
     {
       test: './lib',
-      presets: ['@babel/preset-react'],
       plugins: [
         '@babel/plugin-proposal-export-default-from',
         '@babel/plugin-syntax-dynamic-import',
