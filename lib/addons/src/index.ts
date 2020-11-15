@@ -1,4 +1,4 @@
-import global from 'global';
+import global = require('global');
 import { ReactElement } from 'react';
 import { Channel } from '@storybook/channels';
 import { API } from '@storybook/api';
