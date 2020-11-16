@@ -33,7 +33,7 @@ export interface ClientApiParams {
 
 export type ClientApiReturnFn<StoryFnReturnType> = (...args: any[]) => StoryApi<StoryFnReturnType>;
 
-export { StoryApi, DecoratorFunction };
+export type { StoryApi, DecoratorFunction };
 
 export interface LegacyItem {
   fileName: string;
