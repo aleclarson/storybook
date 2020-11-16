@@ -1,4 +1,3 @@
-import global = require('global');
 import { ReactElement } from 'react';
 import { Channel } from '@storybook/channels';
 import { API } from '@storybook/api';
@@ -109,10 +108,13 @@ export class AddonStore {
   };
 }
 
+declare const require: any;
+
 // Enforce addons store to be a singleton
 const KEY = '__STORYBOOK_ADDONS';
 
 function getAddonsStore(): AddonStore {
+  const global = require('global');
   if (!global[KEY]) {
     global[KEY] = new AddonStore();
   }
